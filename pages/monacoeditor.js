@@ -10,11 +10,17 @@ export default function MonacoEditor() {
       {/* Editor Column */}
       <div className="flex-1 flex flex-col border rounded-lg overflow-hidden">
         <h2 className="p-2 bg-gray-100 font-semibold">Editor</h2>
-        <textarea
+        <Editor
+          defaultLanguage="html"
           value={html}
-          onChange={(e) => setHtml(e.target.value)}
+          onChange={(value) => setHtml(value || '')}
           className="flex-1 p-4 font-mono text-sm resize-none focus:outline-none"
-          spellCheck="false"
+          
+          options={{
+            minimap: { enabled: false },
+            fontSize: 14,
+            wordWrap: 'on'
+          }}
         />
       </div>
       
